@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(216, 100%, 8%);
+  --foreground: hsl(210, 20%, 98%);
+  --card: hsla(216, 100%, 8%, 0.4);
+  --card-foreground: hsl(210, 20%, 98%);
+  --popover: hsl(216, 100%, 8%);
+  --popover-foreground: hsl(210, 20%, 98%);
+  --primary: hsl(194, 100%, 50%);
+  --primary-foreground: hsl(216, 100%, 8%);
+  --secondary: hsl(196, 84%, 67%);
+  --secondary-foreground: hsl(216, 100%, 8%);
+  --muted: hsla(210, 20%, 98%, 0.1);
+  --muted-foreground: hsl(210, 20%, 80%);
+  --accent: hsl(195, 100%, 76%);
+  --accent-foreground: hsl(216, 100%, 8%);
+  --destructive: hsl(356, 91%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsla(210, 20%, 98%, 0.2);
+  --input: hsl(207, 28%, 18%);
+  --ring: hsl(194, 100%, 50%);
+  --chart-1: hsl(194, 100%, 50%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsla(216, 100%, 8%, 0.4);
+  --sidebar-foreground: hsl(210, 20%, 98%);
+  --sidebar-primary: hsl(194, 100%, 50%);
+  --sidebar-primary-foreground: hsl(216, 100%, 8%);
+  --sidebar-accent: hsl(195, 100%, 76%);
+  --sidebar-accent-foreground: hsl(216, 100%, 8%);
+  --sidebar-border: hsla(210, 20%, 98%, 0.2);
+  --sidebar-ring: hsl(194, 100%, 50%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+  --ocean-blue: hsl(216, 100%, 8%);
+  --cyan-glow: hsl(194, 100%, 50%);
+  --aqua-start: hsl(196, 84%, 39%);
+  --aqua-mid: hsl(195, 84%, 56%);
+  --aqua-end: hsl(195, 100%, 76%);
+  --ocean-white: hsl(210, 20%, 98%);
+}
+
+.dark {
+  --background: hsl(216, 100%, 8%);
+  --foreground: hsl(210, 20%, 98%);
+  --card: hsla(216, 100%, 8%, 0.4);
+  --card-foreground: hsl(210, 20%, 98%);
+  --popover: hsl(216, 100%, 8%);
+  --popover-foreground: hsl(210, 20%, 98%);
+  --primary: hsl(194, 100%, 50%);
+  --primary-foreground: hsl(216, 100%, 8%);
+  --secondary: hsl(196, 84%, 67%);
+  --secondary-foreground: hsl(216, 100%, 8%);
+  --muted: hsla(210, 20%, 98%, 0.1);
+  --muted-foreground: hsl(210, 20%, 80%);
+  --accent: hsl(195, 100%, 76%);
+  --accent-foreground: hsl(216, 100%, 8%);
+  --destructive: hsl(356, 91%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsla(210, 20%, 98%, 0.2);
+  --input: hsl(207, 28%, 18%);
+  --ring: hsl(194, 100%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden;
+    background: var(--ocean-blue);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 246, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 246, 255, 0.1);
+  }
+
+  .glow-button {
+    background: linear-gradient(135deg, #0096c7, #00b4d8, #90e0ef);
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 30px rgba(0, 246, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .section-fade-in {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .scroll-indicator {
+    animation: bounce 2s infinite;
+  }
+
+  .floating-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 246, 255, 0.4), rgba(0, 246, 255, 0.1));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .floating-bubble:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .floating-bubble:nth-child(3) { left: 35%; animation-delay: 2s; }
+  .floating-bubble:nth-child(4) { left: 50%; animation-delay: 0.5s; }
+  .floating-bubble:nth-child(5) { left: 65%; animation-delay: 1.5s; }
+  .floating-bubble:nth-child(6) { left: 80%; animation-delay: 2.5s; }
+
+  .ocean-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--cyan-glow), var(--aqua-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: scale(1); }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) scale(0); opacity: 0; }
+}
+
+@keyframes caustics {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  25% { 
+    transform: translateY(-20px) scale(1.02);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translateY(-10px) scale(0.98);
+    opacity: 0.3;
+  }
+  75% { 
+    transform: translateY(-30px) scale(1.01);
+    opacity: 0.45;
+  }
+}
+
+@keyframes waves {
+  0% { transform: translateX(-100%) translateY(-50%); }
+  100% { transform: translateX(100%) translateY(50%); }
+}
